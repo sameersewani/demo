@@ -1,0 +1,48 @@
+<template>
+    <lightning-input type="search" placeholder="EnterName" onchange={handleKeyChange}
+    name="Enter Name" class="slds-m-bottom_small" label="Enter Name" value={searchKey} required="">
+    </lightning-input>
+
+    <div class="slds-align_absolute-center" style="width: 55%;">
+    <template if:true={ismodalopen}>
+        
+            <lightning-card>
+                <template for:each={items} for:item="i">
+                    <div key={i.Id} style="display:flex; padding:1%">
+                        <img src={i.Photo__c} style="width:200px; height:200px;margin-left: 23px;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between;">   
+                                <p class="slds-p-horizontal_small" style="margin-left: 22px;
+                                 font-size: 29px;"><b>
+                                    {i.Name}</b>
+                                </p><br>
+                                    <div style="padding-left: 164px;">
+                                        <img style="padding: 5px;height: 52px;" onclick={handleClick}  class="clock" 
+                                         src={like}/>
+                                        <img style="padding: 5px; height: 52px;" onclick={station_page} class="tt"
+                                         src={share}/><br>             
+                                    </div>
+                                
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; margin-top: 12px;">
+                                <img src={i.Icon__c} style="width:34px; height:34px;margin-left: 31px;">
+                                <p class="slds-p-horizontal_small" style="font-size: 15px;">
+                                    {i.Description__c}</p>
+                            </div><br>
+                            <hr style="height: 2px;border: none;background-color: aqua; 
+                            margin-left: 31px;"><br>
+                            <div>
+                                <p class="slds-p-horizontal_small" style="margin-left: 20px;">
+                                    {i.Description__c} </p>
+                            </div>
+                            
+                        </div>
+                       
+                </div>
+                </template>        
+            </lightning-card>    
+    </template> 
+</div>  
+    
+</template>
